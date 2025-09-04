@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tic‑Tac‑Toe</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <h1>Tic‑Tac‑Toe</h1>
+        <div class="controls">
+          <label>
+            Mode:
+            <select id="mode">
+              <option value="human">Player vs Player</option>
+              <option value="cpu">Player vs Computer</option>
+            </select>
+          </label>
+          <button id="reset" aria-label="Reset game">Reset</button>
+        </div>
+        <p id="status" role="status" aria-live="polite">Turn: X</p>
+      </header>
+
+      <section id="board" class="board" role="grid" aria-label="Tic‑Tac‑Toe board">
+        <!-- 9 cells -->
+        <button class="cell" data-idx="0" role="gridcell" aria-label="cell 1"></button>
+        <button class="cell" data-idx="1" role="gridcell" aria-label="cell 2"></button>
+        <button class="cell" data-idx="2" role="gridcell" aria-label="cell 3"></button>
+        <button class="cell" data-idx="3" role="gridcell" aria-label="cell 4"></button>
+        <button class="cell" data-idx="4" role="gridcell" aria-label="cell 5"></button>
+        <button class="cell" data-idx="5" role="gridcell" aria-label="cell 6"></button>
+        <button class="cell" data-idx="6" role="gridcell" aria-label="cell 7"></button>
+        <button class="cell" data-idx="7" role="gridcell" aria-label="cell 8"></button>
+        <button class="cell" data-idx="8" role="gridcell" aria-label="cell 9"></button>
+      </section>
+
+      <footer class="bottom">
+        <button id="new" class="primary">New Game</button>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

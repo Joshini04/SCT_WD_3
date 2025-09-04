@@ -1,0 +1,83 @@
+:root{
+  --bg:#0f172a;--panel:#111827;--line:#334155;--x:#ef4444;--o:#22c55e;--text:#e5e7eb;--muted:#94a3b8;
+}
+
+/* Global */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:radial-gradient(900px 900px at 8% -8%, #0ea5e9 0%, transparent 60%),
+             radial-gradient(900px 900px at 108% 108%, #22c55e 0%, transparent 60%),
+             var(--bg);
+  display:grid;place-items:center;
+  padding:clamp(8px, 1.2vw, 18px);
+}
+
+/* App shell stays narrow on laptops */
+.app{
+  width:min(92vw, 720px);
+  display:grid;gap:clamp(.5rem, 1.2vw, 1rem);
+}
+
+.top{
+  background:color-mix(in lab, var(--panel) 90%, black 10%);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:clamp(.6rem, 1.2vw, 1rem);
+  box-shadow:0 8px 30px rgba(0,0,0,.35);
+}
+.top h1{
+  margin:.25rem 0 .5rem;
+  font-weight:700;
+  font-size:clamp(1.1rem, 1.2vw + .6rem, 1.6rem);
+}
+.controls{
+  display:flex;gap:clamp(.4rem, 1vw, .75rem);align-items:center;flex-wrap:wrap
+}
+.controls select,.controls button{
+  background:#0b1220;border:1px solid var(--line);color:var(--text);
+  padding:clamp(.35rem, .6vw, .55rem) clamp(.55rem, 1.2vw, .8rem);
+  border-radius:8px;cursor:pointer;font-size:clamp(.85rem, .5vw + .6rem, .95rem)
+}
+#status{margin:.5rem 0 0;color:var(--muted);font-size:clamp(.9rem, .6vw + .55rem, 1rem)}
+
+/* Compact board: never too big on laptop screens */
+.board{
+  width:min(88vw, clamp(360px, 50vmin, 520px));
+  margin-inline:auto;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:clamp(.4rem, 1.2vw, .75rem);
+}
+
+/* Square cells scale but stay readable */
+.cell{
+  aspect-ratio:1/1;
+  background:#0b1220;
+  border:1px solid var(--line);
+  border-radius:12px;
+  color:var(--text);
+  font-size:clamp(1.6rem, 6.5vmin, 3.4rem);
+  font-weight:800;
+  display:grid;place-items:center;
+  cursor:pointer;
+  transition:transform .08s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.02);
+}
+.cell:hover{transform:translateY(-1px);background:#0f182a}
+.cell.x{color:var(--x)} .cell.o{color:var(--o)}
+.cell:disabled{cursor:not-allowed;opacity:.9}
+
+/* Bottom bar */
+.bottom{display:flex;justify-content:center}
+.primary{
+  background:#2563eb;border:none;color:white;
+  padding:clamp(.5rem, .9vw, .65rem) clamp(.8rem, 1.6vw, 1rem);
+  border-radius:10px;cursor:pointer;
+  box-shadow:0 6px 20px rgba(37,99,235,.35);
+  font-size:clamp(.9rem, .6vw + .55rem, 1rem);
+}
+.primary:hover{filter:brightness(1.05)}
